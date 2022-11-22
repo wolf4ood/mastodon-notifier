@@ -2,8 +2,12 @@
 name = "mastodon-notifier"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+readme = "README.md"
+license = "Apache-2.0"
+description= "Mastodon desktop notification daemon"
+repository = "https://github.com/wolf4ood/mastodon-notifier"
+keywords = ["mastodon","cli","notification"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 anyhow = "1.0.66"

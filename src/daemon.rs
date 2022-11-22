@@ -34,7 +34,9 @@ pub async fn run(opts: Opts) -> Result<()> {
         let mut stream = handle.stream();
         while let Ok(response) = stream.try_next().await {
             if let Some(ActionResponse::Custom((noty, _))) = response {
-                let _ = open_browser(&noty.url());
+                if let Some(url) = noty.url() {
+                    let _ = open_browser(&url);
+                }
             }
         }
     });

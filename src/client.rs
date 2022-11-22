@@ -148,14 +148,13 @@ impl Notification {
         }
     }
 
-    pub fn url(&self) -> String {
+    pub fn url(&self) -> Option<String> {
         match self.kind {
-            NotificationType::Favourite => self
-                .status
-                .as_ref()
-                .map(|status| status.url.clone())
-                .unwrap_or_default(),
-            _ => String::default(),
+            NotificationType::Favourite
+            | NotificationType::Mention
+            | NotificationType::Reblog
+            | NotificationType::Status => self.status.as_ref().map(|status| status.url.clone()),
+            _ => None,
         }
     }
 }

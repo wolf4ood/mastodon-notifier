@@ -1,0 +1,13 @@
+[Unit]
+Description=A Mastodon notifier daemon
+Documentation=https://github.com/wolf4ood/mastodon-notifier
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/mastodon-notifier --mode daemon --host hachyderm.io --user wolf4ood
+Restart=always
+RestartSec=12
+
+[Install]
+WantedBy=default.target
